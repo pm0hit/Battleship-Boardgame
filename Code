@@ -1,0 +1,151 @@
+Getting Our Feet Wet
+The first thing we need to do is to set up the game board.
+
+Instructions
+--------------------------------------------------------------------------------------
+1. Create a variable board and set it equal to an empty list.
+
+
+###########CODE################
+
+board = []
+
+--------------------------------------------------------------------------------------
+Create a 5 x 5 grid initialized to all ‘O’s and store it in board.
+2. Use range() to loop 5 times.Inside the loop, .append() a list containing 5 "O"s to board, just like in the example above.
+Note that these are capital letter “O” and not zeros.
+
+###########CODE################
+
+board = []
+
+for x in range(0,5):
+    board.append(["O"]*5)
+print board
+--------------------------------------------------------------------------------------
+3. Use the print command to display the contents of the board list.
+
+###########CODE################
+
+board = []
+
+for x in range(0,5):
+    board.append(["O"]*5)
+print board
+
+--------------------------------------------------------------------------------------
+
+4.First, delete your existing print statement.
+
+Then, define a function named print_board with a single argument, board_in.
+
+Inside the function, write a for loop to iterates through each row in board and print it to the screen.
+
+Call your function with board to make sure it works.
+
+###########CODE################
+
+def print_board(board_in):
+  for x in board:
+    print x
+    
+print board
+
+--------------------------------------------------------------------------------------
+
+5.Inside your function, inside your for loop, use " " as the separator to .join the elements of each row.
+
+###########CODE################
+
+def print_board(board):
+    for x in board:
+        print " ".join(x)
+
+print_board(board)
+--------------------------------------------------------------------------------------
+
+6. Define two new functions, random_row and random_col, that each take board_in as input.
+
+These functions should return a random row index and a random column index from your board, respectively. Use randint(0, len(board_in) - 1).
+
+Call each function on board.
+
+###########CODE################
+
+def random_row(board_in):
+  from random import randint
+  return randint(0, len(board) - 1)
+  
+def random_col(board_in):
+  from random import randint
+  return randint(0, len(board) - 1)
+	
+--------------------------------------------------------------------------------------
+
+7.Create a new variable called guess_row and set it to int(raw_input("Guess Row: ")).
+
+Create a new variable called guess_col and set it to int(raw_input("Guess Col: ")).
+
+Click Run and then answer the prompts by typing in a number and pressing Enter (or Return on some computers).
+
+###########CODE################
+
+guess_row = int(raw_input("Guess Row: "))
+guess_col = int(raw_input("Guess Col: "))
+
+--------------------------------------------------------------------------------------
+
+8.Before the lines prompting the user for input:
+
+Print the value of ship_row.
+
+Print the value of ship_col.
+
+###########CODE################
+
+print ship_row
+print ship_col
+
+--------------------------------------------------------------------------------------
+
+9. On line 29, add an if to check if guess_row equals ship_row and guess_col equals ship_col.
+
+If that is the case, please print out "Congratulations! You sank my battleship!"
+
+When you run this code, be sure to enter integer guesses in the panel where it asks for “Guess Row” and then “Guess Col”.
+
+###########CODE################
+
+if guess_row==ship_row and guess_col==ship_col:
+    print "Congratulations!You sank my battleship!"
+else:
+    print "Computer won!"
+		
+--------------------------------------------------------------------------------------
+
+10. Add an else under the if we wrote in the previous step.
+
+Print out "You missed my battleship!"
+
+Set the list element at guess_row, guess_col to "X".
+
+As the last line in your else statement, call print_board(board) again so you can see the "X".Make sure to enter a col and row that is on the board!
+
+###########CODE################
+
+else:
+    print "You missed my battleship!"
+    board[guess_row][guess_col]="X"
+    print_board(board)
+		
+--------------------------------------------------------------------------------------
+
+11. Add a new if statement that is nested under the else.
+
+Like the example above, it should check if guess_row is not in range(5) or guess_col is not in range(5).
+
+If that is the case, print out "Oops, that's not even in the ocean."
+
+After your new if statement, add an else that contains your existing handler for an incorrect guess. Don’t forget to indent the code!
+
+###########CODE################
